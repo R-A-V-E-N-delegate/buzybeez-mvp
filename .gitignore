@@ -1,2 +1,17 @@
+# Environment
 .env
+
+# Dependencies
 node_modules/
+
+# Build output
+dist/
+web-vite/dist/
+
+# Test output
+test-results/
+playwright-report/
+web-vite/test-results/
+
+# OS
+.DS_Store
