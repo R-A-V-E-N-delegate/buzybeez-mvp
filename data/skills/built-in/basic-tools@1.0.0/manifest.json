@@ -1,0 +1,13 @@
+{
+  "id": "basic-tools",
+  "name": "Basic Tools",
+  "version": "1.0.0",
+  "description": "Fundamental file operations, command execution, and mail utilities",
+  "owner": "built-in",
+
+  "context": [
+    "context/instructions.md"
+  ],
+
+  "scripts": []
+}

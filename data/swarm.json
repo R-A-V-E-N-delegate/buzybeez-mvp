@@ -1,0 +1,32 @@
+{
+  "id": "default-swarm",
+  "name": "Default Swarm",
+  "bees": [
+    {
+      "id": "bee-001",
+      "name": "Worker Bee"
+    },
+    {
+      "id": "bee-002",
+      "name": "Research Bee"
+    },
+    {
+      "id": "bee-003",
+      "name": "Analyst Bee"
+    }
+  ],
+  "connections": [
+    {
+      "from": "human",
+      "to": "bee-001"
+    },
+    {
+      "from": "human",
+      "to": "bee-002"
+    },
+    {
+      "from": "bee-001",
+      "to": "bee-002"
+    }
+  ]
+}

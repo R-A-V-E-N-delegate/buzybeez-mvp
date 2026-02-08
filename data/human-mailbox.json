@@ -1,0 +1,109 @@
+{
+  "inbox": [
+    {
+      "id": "47832cb6-4525-4775-bcdb-27f8455e708c",
+      "from": "bee-001",
+      "to": "human",
+      "subject": "Re: Test with attachment",
+      "body": "I appreciate the message! However, I notice this mail system doesn't appear to have attachment support in the current implementation. \n\nIs there something specific you'd like me to do with a file? I can:\n- Create files in my workspace\n- Read existing files\n- Process file contents\n- Execute commands that work with files\n\nPlease let me know what task you'd like me to help with! 🐝",
+      "timestamp": "2026-02-06T20:15:37.503Z",
+      "metadata": {
+        "type": "agent",
+        "priority": "normal",
+        "inReplyTo": "201f329a-8923-47f7-884c-02dbf0fbb640"
+      },
+      "status": "delivered"
+    },
+    {
+      "id": "6cd9b719-daae-4f03-94f5-2207f6de4a5c",
+      "from": "bee-001",
+      "to": "human",
+      "subject": "Re: Test with attachment",
+      "body": "I received your message! However, I don't see an attachment in the mail system. The current mail implementation appears to support text-based messages only.\n\nIf you'd like me to work with a file, you could:\n1. Describe what file you'd like me to create or modify\n2. Provide the file contents in the mail body\n3. Ask me to work with files already in my workspace\n\nWhat would you like me to help you with? 🐝",
+      "timestamp": "2026-02-06T20:15:40.009Z",
+      "metadata": {
+        "type": "agent",
+        "priority": "normal",
+        "inReplyTo": "618caed7-2fcf-42d5-939c-9a425ec89ebc"
+      },
+      "status": "delivered"
+    },
+    {
+      "id": "113f937f-0da7-46a3-a867-18c0cd861201",
+      "from": "bee-001",
+      "to": "human",
+      "subject": "Re: Task: Create a haiku",
+      "body": "Here's a haiku about bees working together:\n\nGolden wings flutter\nBuilding dreams cell by cell\nHive's strength in unity\n\n🐝",
+      "timestamp": "2026-02-06T23:55:35.509Z",
+      "metadata": {
+        "type": "agent",
+        "priority": "normal"
+      },
+      "status": "delivered"
+    },
+    {
+      "id": "b459ec54-c103-4031-b9dc-55ca9fc925bb",
+      "from": "bee-001",
+      "to": "human",
+      "subject": "Re: Task: Create a haiku",
+      "body": "Done! I've sent a haiku about bees working together back to you. 🐝",
+      "timestamp": "2026-02-06T23:55:36.374Z",
+      "metadata": {
+        "type": "agent",
+        "priority": "normal",
+        "inReplyTo": "7fc92549-9031-4dee-877e-767aeb0a1541"
+      },
+      "status": "delivered"
+    }
+  ],
+  "outbox": [
+    {
+      "id": "201f329a-8923-47f7-884c-02dbf0fbb640",
+      "from": "human",
+      "to": "bee-001",
+      "subject": "Test with attachment",
+      "body": "Here is a file for you",
+      "timestamp": "2026-02-06T16:00:46.500Z",
+      "metadata": {
+        "type": "human",
+        "priority": "normal"
+      },
+      "status": "queued"
+    },
+    {
+      "id": "618caed7-2fcf-42d5-939c-9a425ec89ebc",
+      "from": "human",
+      "to": "bee-001",
+      "subject": "Test with attachment",
+      "body": "Here is a file for you",
+      "timestamp": "2026-02-06T16:02:16.965Z",
+      "metadata": {
+        "type": "human",
+        "priority": "normal"
+      },
+      "status": "queued",
+      "attachments": [
+        {
+          "id": "44531713-811a-444b-88d2-297decebb0ff",
+          "filename": "test3.txt",
+          "mimeType": "text/plain",
+          "size": 18,
+          "path": "44531713-811a-444b-88d2-297decebb0ff.txt"
+        }
+      ]
+    },
+    {
+      "id": "7fc92549-9031-4dee-877e-767aeb0a1541",
+      "from": "human",
+      "to": "bee-001",
+      "subject": "Task: Create a haiku",
+      "body": "Please write a short haiku about bees working together. When done, send the result back to human.",
+      "timestamp": "2026-02-06T23:55:33.126Z",
+      "metadata": {
+        "type": "human",
+        "priority": "normal"
+      },
+      "status": "queued"
+    }
+  ]
+}

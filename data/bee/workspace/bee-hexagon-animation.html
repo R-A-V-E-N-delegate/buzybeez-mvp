@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuzyBeez Hexagon Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a00, #ffd700, #ff6b00);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .hexagon {
+            width: 60px;
+            height: 34.64px;
+            background: #ffd700;
+            position: absolute;
+            margin: 17.32px 0;
+            animation: float 3s ease-in-out infinite;
+            border: 2px solid #ff6b00;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .hexagon:before,
+        .hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+        }
+
+        .hexagon:before {
+            bottom: 100%;
+            border-bottom: 17.32px solid #ffd700;
+            border-top: 2px solid #ff6b00;
+        }
+
+        .hexagon:after {
+            top: 100%;
+            border-top: 17.32px solid #ffd700;
+            border-bottom: 2px solid #ff6b00;
+        }
+
+        .hexagon:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+            animation-duration: 2.5s;
+        }
+
+        .hexagon:nth-child(2) {
+            top: 30%;
+            left: 70%;
+            animation-delay: -0.5s;
+            animation-duration: 3s;
+        }
+
+        .hexagon:nth-child(3) {
+            top: 60%;
+            left: 10%;
+            animation-delay: -1s;
+            animation-duration: 2.8s;
+        }
+
+        .hexagon:nth-child(4) {
+            top: 20%;
+            left: 50%;
+            animation-delay: -1.5s;
+            animation-duration: 3.2s;
+        }
+
+        .hexagon:nth-child(5) {
+            top: 80%;
+            left: 60%;
+            animation-delay: -2s;
+            animation-duration: 2.7s;
+        }
+
+        .hexagon:nth-child(6) {
+            top: 50%;
+            left: 30%;
+            animation-delay: -2.5s;
+            animation-duration: 3.1s;
+        }
+
+        .hexagon:nth-child(7) {
+            top: 70%;
+            left: 80%;
+            animation-delay: -3s;
+            animation-duration: 2.9s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        .bee {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            animation: buzz 4s ease-in-out infinite;
+            z-index: 100;
+        }
+
+        @keyframes buzz {
+            0%, 100% {
+                transform: translate(-50%, -50%) rotate(-5deg);
+            }
+            25% {
+                transform: translate(-40%, -60%) rotate(5deg);
+            }
+            50% {
+                transform: translate(-60%, -40%) rotate(-5deg);
+            }
+            75% {
+                transform: translate(-40%, -40%) rotate(5deg);
+            }
+        }
+
+        .title {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            text-align: center;
+            z-index: 50;
+        }
+
+        .honeycomb-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #ffd700 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #ffd700 2px, transparent 2px);
+            background-size: 40px 40px;
+            animation: slide 10s linear infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                background-position: 0 0, 20px 20px;
+            }
+            100% {
+                background-position: 40px 40px, 60px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="honeycomb-bg"></div>
+        <div class="title">BuzyBeez Hive</div>
+        <div class="bee">🐝</div>
+        <div class="hexagon"></div>
+        <div class="hexagon"></div>
+        <div class="hexagon"></div>
+        <div class="hexagon"></div>
+        <div class="hexagon"></div>
+        <div class="hexagon"></div>
+        <div class="hexagon"></div>
+    </div>
+</body>
+</html>

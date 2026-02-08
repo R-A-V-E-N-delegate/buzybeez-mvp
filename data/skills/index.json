@@ -1,0 +1,13 @@
+{
+  "skills": [
+    {
+      "id": "basic-tools",
+      "versions": ["1.0.0"],
+      "latestVersion": "1.0.0",
+      "owner": "built-in",
+      "usedBy": [],
+      "registeredAt": "2026-02-06T00:00:00Z",
+      "updatedAt": "2026-02-06T00:00:00Z"
+    }
+  ]
+}

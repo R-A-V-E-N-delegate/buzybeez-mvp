@@ -1,0 +1,6 @@
+{
+  "from": "bee-001",
+  "to": "bee-002",
+  "subject": "Hello neighbor",
+  "body": "Please create /workspace/bee-chain.txt containing: chain test passed"
+}

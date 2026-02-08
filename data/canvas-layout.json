@@ -1,0 +1,144 @@
+{
+  "nodes": [
+    {
+      "id": "human",
+      "type": "human",
+      "position": {
+        "x": -113.01268970552765,
+        "y": 366.41798982759093
+      },
+      "data": {
+        "label": "Human Mailbox",
+        "mailCounts": {
+          "inbox": 4,
+          "outbox": 3,
+          "processing": false
+        }
+      },
+      "draggable": true,
+      "width": 165,
+      "height": 82,
+      "selected": true,
+      "positionAbsolute": {
+        "x": -113.01268970552765,
+        "y": 366.41798982759093
+      },
+      "dragging": false
+    },
+    {
+      "id": "bee-001",
+      "type": "bee",
+      "position": {
+        "x": 384.5,
+        "y": -90.59999999999998
+      },
+      "data": {
+        "label": "Worker Bee",
+        "beeId": "bee-001",
+        "running": true,
+        "mailCounts": {
+          "inbox": 0,
+          "outbox": 0,
+          "processing": false
+        }
+      },
+      "draggable": true,
+      "width": 140,
+      "height": 74,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 384.5,
+        "y": -90.59999999999998
+      },
+      "dragging": false
+    },
+    {
+      "id": "bee-002",
+      "type": "bee",
+      "position": {
+        "x": 400,
+        "y": 250
+      },
+      "data": {
+        "label": "Research Bee",
+        "beeId": "bee-002",
+        "running": false,
+        "mailCounts": {
+          "inbox": 0,
+          "outbox": 0,
+          "processing": false
+        }
+      },
+      "draggable": true,
+      "width": 153,
+      "height": 74,
+      "selected": false,
+      "dragging": false
+    }
+  ],
+  "edges": [
+    {
+      "id": "human->bee-001",
+      "source": "human",
+      "target": "bee-001",
+      "bidirectional": false,
+      "type": "straight",
+      "animated": true,
+      "style": {
+        "stroke": "#f5a623",
+        "strokeWidth": 2,
+        "strokeDasharray": "5,5"
+      },
+      "markerEnd": {
+        "type": "arrowclosed",
+        "color": "#f5a623"
+      },
+      "markerStart": {
+        "type": "arrowclosed",
+        "color": "#f5a623"
+      }
+    },
+    {
+      "id": "human->bee-002",
+      "source": "human",
+      "target": "bee-002",
+      "bidirectional": false,
+      "type": "straight",
+      "animated": true,
+      "style": {
+        "stroke": "#f5a623",
+        "strokeWidth": 2,
+        "strokeDasharray": "5,5"
+      },
+      "markerEnd": {
+        "type": "arrowclosed",
+        "color": "#f5a623"
+      },
+      "markerStart": {
+        "type": "arrowclosed",
+        "color": "#f5a623"
+      }
+    },
+    {
+      "id": "bee-001->bee-002",
+      "source": "bee-001",
+      "target": "bee-002",
+      "bidirectional": false,
+      "type": "straight",
+      "animated": true,
+      "style": {
+        "stroke": "#f5a623",
+        "strokeWidth": 2,
+        "strokeDasharray": "5,5"
+      },
+      "markerEnd": {
+        "type": "arrowclosed",
+        "color": "#f5a623"
+      },
+      "markerStart": {
+        "type": "arrowclosed",
+        "color": "#f5a623"
+      }
+    }
+  ]
+}
