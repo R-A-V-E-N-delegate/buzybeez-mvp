@@ -1,117 +1,84 @@
-# BuzyBeez Documentation
+# BuzyBeez MVP
 
-**BuzyBeez** is an AI agent orchestrator where agents ("Beez") run in sandboxed containers, communicate exclusively via mail, and are composed with capability packs ("Skillz"). Users design agent topologies on a node-based canvas ("Swarmz").
+An AI agent orchestration platform where autonomous "bees" (Claude-powered agents) run in Docker containers, communicate via a mail system, and are managed through a React canvas UI.
 
-Think of it as **n8n for AI agent orchestration**.
+## Key Features
 
----
-
-## Design Principles
-
-1. **KISS** - Keep it simple. Prefer obvious solutions over clever ones.
-2. **Modular** - Components are independent and replaceable.
-3. **Composable** - Small pieces combine to create complex behaviors.
-
----
-
-## Documentation Index
-
-| Document | Description |
-|----------|-------------|
-| [Core Concepts](./01-core-concepts.md) | Beez, Skillz, Swarmz, Mail, Mailboxez - the fundamental building blocks |
-| [Architecture](./02-architecture.md) | System layers, components, and data flow |
-| [Design Decisions](./03-design-decisions.md) | Every major decision with rationale |
-| [Data Models](./04-data-models.md) | TypeScript interfaces and schemas |
-| [API Specification](./05-api-specification.md) | REST endpoints and WebSocket events |
-| [Skills System](./06-skills-system.md) | Skill structure, registry, and agent-created skills |
-| [Implementation Guide](./07-implementation-guide.md) | Phased build plan with deliverables |
-| [Testing Strategy](./08-testing-strategy.md) | Unit, integration, and E2E test plans |
-| [UI Vision](./09-ui-vision.md) | Visual design language, layouts, and component patterns |
-
----
-
-## Quick Start (Future)
-
-```bash
-# Clone and install
-git clone https://github.com/you/buzybeez
-cd buzybeez
-pnpm install
-
-# Start the platform
-pnpm dev
-
-# Open canvas UI
-open http://localhost:3000
-```
-
----
-
-## MVP Scope
-
-**In scope:**
-- Local Docker containers as bee compute
-- Node-based canvas for swarmz design
-- Mail-based communication between beez
-- External mailboxez for humans and external services
-- Skill mounting and management
-- Soul files for bee personality and self-learning
-- Full observability (logs, transcripts, mail history, system log)
-- Container access (filesystem, SSH terminal)
-- Cron-based scheduled events (manageable from UI)
-- Human-in-the-loop approval workflows
-- Pause/resume for individual beez and entire swarmz
-- Configurable bee timeouts
-
-**Out of scope (for now):**
-- Authentication / multi-tenancy
-- Remote Docker hosts / cloud compute
-- VNC for GUI access
-- Skill marketplace
-- Cloud deployment
-- Billing / usage tracking
-
----
+- **Multi-agent orchestration**: Run multiple Claude-powered agents simultaneously in isolated Docker containers
+- **Mail-based communication**: Bees communicate with each other and humans exclusively through a structured mail system
+- **Visual canvas UI**: Drag-and-drop interface built with React Flow for arranging bees, drawing connections, and managing the swarm
+- **Claude Agent SDK**: Each bee uses the official `@anthropic-ai/claude-agent-sdk` with built-in tools (Read, Write, Edit, Bash, Glob, Grep) and MCP support
+- **Session persistence**: Bees retain conversation context across restarts via SDK session management
+- **Real-time updates**: WebSocket-powered live updates for mail delivery, bee status changes, and transcript streaming
+- **Hierarchical delegation**: Bees can delegate subtasks to downstream bees and report results upstream
+- **Soul files**: Customizable personality and instructions per bee via markdown soul files
 
 ## Tech Stack
 
 | Layer | Technology |
-|-------|------------|
-| Runtime | Node.js 20+, TypeScript |
-| Agent | claude-agent-sdk |
-| Containers | Docker (via dockerode) |
-| API | Express or Fastify |
-| WebSocket | ws or socket.io |
-| UI Framework | React |
-| Canvas | react-flow |
-| Terminal | xterm.js |
-| State Management | Zustand |
-| Styling | Tailwind CSS |
-| Build | pnpm workspaces, tsup |
+|-------|-----------|
+| Frontend | React 18, Vite, TypeScript, React Flow, TailwindCSS |
+| API Server | Express, TypeScript, WebSocket (ws), Chokidar |
+| Bee Runner | Node.js, Claude Agent SDK, MCP (Model Context Protocol) |
+| Infrastructure | Docker, dockerode |
 
----
+## Quick Start
 
-## Aesthetic
+### Prerequisites
 
-- Notion-like elegance, lightness, simplicity
-- White and honey-colored palette
-- Thin lines, hexagons, rounded ovals
-- Smooth morph animations
+- Node.js 20+
+- Docker (running)
+- Anthropic API key
 
----
+### Setup
+
+```bash
+# Clone and install
+cd buzybeez-mvp
+npm install
+
+# Set your API key
+export ANTHROPIC_API_KEY=sk-ant-...
+
+# Build the bee Docker image
+npm run docker:build
+
+# Start the server
+npm run dev
+```
+
+Open `http://localhost:3000` in your browser. Use the canvas to start a bee and send it mail.
 
 ## Project Structure
 
 ```
-/packages
-  /core           # Shared types, interfaces, utilities
-  /bee-runtime    # Docker management, agent execution
-  /orchestrator   # Swarmz config, lifecycle, mail routing, API
-  /canvas-ui      # React app with node-based editor
-
-/skills
-  /built-in       # Pre-packaged skills
-  /custom         # Agent-created skills
-
-/docs             # This documentation
+buzybeez-mvp/
+  server/           # Express API server + swarm management
+    index.ts        # REST API routes + WebSocket server
+    swarm.ts        # Docker container lifecycle management
+    types.ts        # TypeScript interfaces
+    skills.ts       # Skills registry (extensibility system)
+  web-vite/         # React frontend (Vite)
+    src/
+      components/   # Canvas, MailComposer, LogViewer, etc.
+      hooks/        # useWebSocket, useSwarm, etc.
+  docker/           # Bee container image
+    runner.js       # Agent SDK runner (inbox polling + query())
+    mcp-mail-server.js  # MCP server providing send_mail tool
+    Dockerfile      # Bee container image definition
+    package.json    # Runner dependencies
+  data/             # Runtime data (gitignored)
+    bees/           # Per-bee directories (inbox, outbox, workspace, etc.)
+    swarm.json      # Swarm configuration
+  docs/             # Documentation (this directory)
+  docs-archive/     # Previous documentation (archived)
 ```
+
+## Documentation
+
+- [Architecture](architecture.md) - System architecture, data flow, and design decisions
+- [Bee Runner](bee-runner.md) - How the Agent SDK runner works inside each container
+- [API Reference](api-reference.md) - REST endpoints and WebSocket events
+- [Data Models](data-models.md) - TypeScript interfaces, mail schema, transcript format
+- [Development](development.md) - Setup, development workflow, and testing
+- [Skills System](skills-system.md) - Extensible skills registry

@@ -156,7 +156,7 @@ export class SwarmManager extends EventEmitter {
 
     // Create new container
     const beeDataDir = path.join(this.dataDir, 'bees', beeId);
-    const dirs = ['inbox', 'outbox', 'state', 'logs', 'workspace'];
+    const dirs = ['inbox', 'outbox', 'state', 'logs', 'workspace', 'claude-data'];
     for (const dir of dirs) {
       await fs.mkdir(path.join(beeDataDir, dir), { recursive: true });
     }
@@ -171,15 +171,14 @@ You are ${bee.name}, a helpful AI bee in the BuzyBeez system.
 You process mail and help with tasks. You have access to a workspace where you can create, read, manage files, and execute code.
 
 ## Your Tools
-- read_file, write_file, list_files, delete_file - File operations
-- execute_command - Run shell commands (python3, node, bash, etc.)
-- kill_process - Kill a background process by PID
+- Read, Write, Edit - File operations in /workspace
+- Bash - Run shell commands (python3, node, bash, etc.)
+- Glob, Grep - Search for files and content
 - send_mail - Send mail to other bees or the human (bee-to-bee communication)
 
 ## Guidelines
 - Be helpful and concise
-- You CAN run code! Use execute_command to run scripts, start servers, install packages
-- For long-running processes (servers), use background: true
+- You CAN run code! Use the Bash tool to run scripts, start servers, install packages
 - Always confirm what you've done
 `;
     await fs.writeFile(soulPath, soulContent);
@@ -229,7 +228,8 @@ You process mail and help with tasks. You have access to a workspace where you c
         `ANTHROPIC_API_KEY=${apiKey}`,
         `BEE_ID=${beeId}`,
         `BEE_NAME=${bee.name}`,
-        `MODEL=${bee.model || 'claude-haiku-4-5-20251001'}`
+        `MODEL=${bee.model || 'claude-haiku-4-5-20251001'}`,
+        `CLAUDE_CODE_CWD=/workspace`
       ],
       HostConfig: {
         Binds: [
@@ -238,7 +238,8 @@ You process mail and help with tasks. You have access to a workspace where you c
           `${path.join(beeDataDir, 'state')}:/state`,
           `${path.join(beeDataDir, 'logs')}:/logs`,
           `${path.join(beeDataDir, 'workspace')}:/workspace`,
-          `${soulPath}:/soul.md:ro`
+          `${soulPath}:/soul.md:ro`,
+          `${path.join(beeDataDir, 'claude-data')}:/root/.claude`
         ],
         RestartPolicy: { Name: 'unless-stopped' }
       }

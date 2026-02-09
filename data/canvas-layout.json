@@ -4,8 +4,8 @@
       "id": "human",
       "type": "human",
       "position": {
-        "x": -113.01268970552765,
-        "y": 366.41798982759093
+        "x": 175.52698807417147,
+        "y": -142.68162854381342
       },
       "data": {
         "label": "Human Mailbox",
@@ -16,39 +16,12 @@
         }
       },
       "draggable": true,
-      "width": 165,
+      "width": 162,
       "height": 82,
-      "selected": true,
-      "positionAbsolute": {
-        "x": -113.01268970552765,
-        "y": 366.41798982759093
-      },
-      "dragging": false
-    },
-    {
-      "id": "bee-001",
-      "type": "bee",
-      "position": {
-        "x": 384.5,
-        "y": -90.59999999999998
-      },
-      "data": {
-        "label": "Worker Bee",
-        "beeId": "bee-001",
-        "running": true,
-        "mailCounts": {
-          "inbox": 0,
-          "outbox": 0,
-          "processing": false
-        }
-      },
-      "draggable": true,
-      "width": 140,
-      "height": 74,
       "selected": false,
       "positionAbsolute": {
-        "x": 384.5,
-        "y": -90.59999999999998
+        "x": 175.52698807417147,
+        "y": -142.68162854381342
       },
       "dragging": false
     },
@@ -56,8 +29,8 @@
       "id": "bee-002",
       "type": "bee",
       "position": {
-        "x": 400,
-        "y": 250
+        "x": 240.72835514688435,
+        "y": 37.905874474208105
       },
       "data": {
         "label": "Research Bee",
@@ -70,10 +43,14 @@
         }
       },
       "draggable": true,
-      "width": 153,
+      "width": 150,
       "height": 74,
-      "selected": false,
-      "dragging": false
+      "selected": true,
+      "dragging": false,
+      "positionAbsolute": {
+        "x": 240.72835514688435,
+        "y": 37.905874474208105
+      }
     }
   ],
   "edges": [

@@ -1,0 +1,16 @@
+{
+  "beeId": "bee-002",
+  "receivesTasksFrom": [
+    {
+      "id": "human",
+      "name": "Human",
+      "type": "human"
+    },
+    {
+      "id": "bee-001",
+      "name": "Worker Bee",
+      "type": "bee"
+    }
+  ],
+  "canDelegateTo": []
+}
