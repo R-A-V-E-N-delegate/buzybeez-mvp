@@ -432,3 +432,4 @@
 {"id":"e94d5255-a7fd-42e8-9141-982434572a4b","timestamp":"2026-02-06T23:55:35.512Z","beeId":"bee-001","type":"claude_request","messageCount":199}
 {"id":"26397e05-efbc-46ff-8c36-61354479b547","timestamp":"2026-02-06T23:55:36.370Z","beeId":"bee-001","type":"claude_response","stopReason":"end_turn","usage":{"input_tokens":19025,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"cache_creation":{"ephemeral_5m_input_tokens":0,"ephemeral_1h_input_tokens":0},"output_tokens":24,"service_tier":"standard","inference_geo":"not_available"}}
 {"id":"92c21efe-03e2-4751-8862-84473785e0cf","timestamp":"2026-02-06T23:55:36.375Z","beeId":"bee-001","type":"mail_sent","mailId":"b459ec54-c103-4031-b9dc-55ca9fc925bb","to":"human","subject":"Re: Task: Create a haiku"}
+{"id":"5d21cb29-61eb-46e0-9c0d-cfdc7042b2ed","timestamp":"2026-02-14T09:34:52.152Z","beeId":"bee-001","type":"bee_started","name":"Worker Bee"}
